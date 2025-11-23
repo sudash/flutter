@@ -24,7 +24,7 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: const Center(
-        child: StyleText( Colors.lime),
+        child: StyleText( Colors.lime, 'Hello Flutter World!'),
         
       ),
     );
@@ -36,13 +36,14 @@ class GradientContainer extends StatelessWidget {
 class StyleText extends StatelessWidget{
   
   final Color color ; 
+  final String message;
   
-  const StyleText(this.color, {super.key});
+  const StyleText(this.color,this.message, {super.key});
   
   @override
   Widget build(context){
     return Text(
-          'Hello Flutter World From Custom Widget!',
+          message,
           style: TextStyle(color: color, fontSize: 30),
         );
   }
