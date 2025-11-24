@@ -6,7 +6,8 @@ void main() {
   runApp(
      MaterialApp(
        home: Scaffold(
-          body: GradientContainer(Color.fromARGB(255, 26, 2, 80), Color.fromARGB(255, 150, 7, 98) ),
+          /// body: GradientContainer(Color.fromARGB(255, 26, 2, 80), Color.fromARGB(255, 150, 7, 98) ),
+         body: GradientContainer.purple(),
        ),
      ),
   );
@@ -15,6 +16,9 @@ void main() {
 class GradientContainer extends StatelessWidget {
   /// Default Constructor funtion 
   const GradientContainer(this.color1, this.color2, {super.key});
+  const GradientContainer.purple({super.key}): 
+    color1 = Colors.deepPurple,
+    color2 = Colors.pink;
   
   final Color color1; 
   final Color color2;
@@ -32,8 +36,11 @@ class GradientContainer extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: const Center(
-        child: StyleText( Colors.lime,  'Hello Flutter World!', 50),
+      child:  Center(
+        /// child: StyleText( Colors.lime,  'Hello Flutter World!', 50),
+        
+        // loading a dice image from internet as using dartpad. 
+        child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41uC6K7LYuOabuncZer2fTt4hb2I0bENWdw&s", width: 100)
         
       ),
     );
