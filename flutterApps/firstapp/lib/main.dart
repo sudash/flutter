@@ -3,28 +3,37 @@ import 'package:flutter/material.dart';
 void main() {
   print('first mobile app using flutter');
 
-  runApp(MaterialApp(home: Scaffold(body: GradientContainer())));
+  runApp(
+     MaterialApp(
+       home: Scaffold(
+          body: GradientContainer(Color.fromARGB(255, 26, 2, 80), Color.fromARGB(255, 150, 7, 98) ),
+       ),
+     ),
+  );
 }
 
 class GradientContainer extends StatelessWidget {
   /// Default Constructor funtion 
-  const GradientContainer({super.key});
+  const GradientContainer(this.color1, this.color2, {super.key});
+  
+  final Color color1; 
+  final Color color2;
   
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 26, 2, 80),
-            Color.fromARGB(255, 100, 7, 98),
+            color1,
+            color2,
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
       ),
       child: const Center(
-        child: StyleText( Colors.lime, 40, 'Hello Flutter World!'),
+        child: StyleText( Colors.lime,  'Hello Flutter World!', 50),
         
       ),
     );
